@@ -27,7 +27,7 @@ This system allows technicians to submit photos of appliance installations (wash
 3. **Railway** (3 min): Deploy Go API from GitHub
 4. **Vercel** (3 min): Deploy dashboard from GitHub
 5. **Test** (1 min): Submit test photo and verify response
-
+x
 ✅ **Database is pre-configured!** You'll receive a Supabase project transfer with all tables, users, and API keys already set up.
 
 Let's get started! 👇
@@ -42,12 +42,6 @@ Before deploying to production, you need:
 - **Railway Account** - Go API hosting ([Sign up](https://railway.app/))
 - **Vercel Account** - Dashboard hosting ([Sign up](https://vercel.com/))
 - **GitHub Account** - Code repository ([Sign up](https://github.com/))
-
-### What You'll Receive
-- ✅ ZIP file with complete codebase
-- ✅ Supabase project transfer (database pre-configured!)
-- ✅ Admin account already created
-- ✅ Test API keys already generated
 
 ---
 
