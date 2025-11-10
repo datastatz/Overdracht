@@ -6,51 +6,7 @@ This system allows technicians to submit photos of appliance installations (wash
 
 ---
 
-## 🎯 System Overview
 
-### Architecture
-
-```
-┌─────────────┐
-│   Client    │
-│ (Technician)│
-└──────┬──────┘
-       │ POST /api/laundry/v1/{endpoint}
-       │ (photo + apiKey)
-       ↓
-┌─────────────────┐
-│   Go API Server │ ← Railway
-│  (Railway.app)  │
-└────────┬────────┘
-         │
-         ├─→ OpenAI API (image analysis)
-         │
-         └─→ Supabase (logging)
-                ↑
-         ┌──────┴──────┐
-         │  Dashboard  │ ← Vercel
-         │  (Vercel)   │
-         └─────────────┘
-```
-
-### Components
-
-1. **Go API Server** - Handles photo uploads, AI analysis via OpenAI, quality control decisions
-2. **Next.js Dashboard** - Admin interface for managing API keys, viewing requests, and statistics
-3. **Supabase Database** - Stores users, API keys, and request logs
-
-### Available Endpoints
-
-| Endpoint | Description |
-|----------|-------------|
-| `/api/laundry/v1/waterFeedAttachedToTap` | Check water supply connection |
-| `/api/laundry/v1/drainHoseInDrain` | Check drain hose placement |
-| `/api/laundry/v1/powerCordInSocket` | Check power connection |
-| `/api/laundry/v1/rinseCycleMachineIsOn` | Check if machine is powered on |
-| `/api/laundry/v1/shippingBoltsRemoved` | Check shipping bolts removal |
-| `/api/laundry/v1/levelIndicatorPresent` | Check spirit level presence |
-
----
 
 ## 🚀 Quick Start - Production Deployment (10 minutes)
 
@@ -491,6 +447,52 @@ NEXT_PUBLIC_SUPABASE_URL      → Database connection (safe)
 NEXT_PUBLIC_SUPABASE_ANON_KEY → Limited database access (safe)
 NEXT_PUBLIC_API_URL           → Go API endpoint
 ```
+
+---
+
+## 🎯 System Overview
+
+### Architecture
+
+```
+┌─────────────┐
+│   Client    │
+│ (Technician)│
+└──────┬──────┘
+       │ POST /api/laundry/v1/{endpoint}
+       │ (photo + apiKey)
+       ↓
+┌─────────────────┐
+│   Go API Server │ ← Railway
+│  (Railway.app)  │
+└────────┬────────┘
+         │
+         ├─→ OpenAI API (image analysis)
+         │
+         └─→ Supabase (logging)
+                ↑
+         ┌──────┴──────┐
+         │  Dashboard  │ ← Vercel
+         │  (Vercel)   │
+         └─────────────┘
+```
+
+### Components
+
+1. **Go API Server** - Handles photo uploads, AI analysis via OpenAI, quality control decisions
+2. **Next.js Dashboard** - Admin interface for managing API keys, viewing requests, and statistics
+3. **Supabase Database** - Stores users, API keys, and request logs
+
+### Available Endpoints
+
+| Endpoint | Description |
+|----------|-------------|
+| `/api/laundry/v1/waterFeedAttachedToTap` | Check water supply connection |
+| `/api/laundry/v1/drainHoseInDrain` | Check drain hose placement |
+| `/api/laundry/v1/powerCordInSocket` | Check power connection |
+| `/api/laundry/v1/rinseCycleMachineIsOn` | Check if machine is powered on |
+| `/api/laundry/v1/shippingBoltsRemoved` | Check shipping bolts removal |
+| `/api/laundry/v1/levelIndicatorPresent` | Check spirit level presence |
 
 ---
 
